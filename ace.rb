@@ -39,7 +39,7 @@ class ApkUIContentsSet
 
   def from_directory(path)
     apk_ui_contents = Array.new
-    Dir[path+"/*"].each do |file_path|
+    Dir[path+"/**/*-[a-z].txt"].each do |file_path|
       apk_ui_contents << self.from_file(file_path)
     end
     apk_ui_contents.flatten
