@@ -46,6 +46,38 @@ class ApkUIContentsSet
   end
 end
 
+class ApkLabel
+  attr_reader :apk_name, :id, :words
+
+  def initialize(apk_name, id, words)
+    @apk_name = apk_name
+    @id = id
+    @words = words
+  end
+end
+
+class ApkSentence
+  attr_reader :apk_name, :id, :sentence
+
+  def initialize(apk_name, id, sentence)
+    @apk_name = apk_name
+    @id = id
+    @words = words
+  end
+end
+
+class ApkContentsEvaluator
+
+  def initialize(path)
+    #@apk_ui_strings
+    #@apk_labels
+    #@apk_sentences
+  end
+
+  def calc_match_rate(apk_label, apk_ui_string)
+  end
+end
+
 path = ARGV[0]
 new_set = ApkUIContentsSet.new(path)
 new_set.apk_ui_contents_set.each do |apk|
