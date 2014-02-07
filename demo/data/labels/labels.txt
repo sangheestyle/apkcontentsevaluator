@@ -1,0 +1,15 @@
+org.wopnersoft.unitconverter, 1,  Unit, Converter, Favorite, Conversions, Angle
+org.wopnersoft.unitconverter, 2,  Arab, Emirates, Dirham, Argentine, Peso
+org.wopnersoft.unitconverter, 3,  Preferences, Number, Format, Options, DATA
+org.wopnersoft.unitconverter, 4,  Unit, Converter, Copyright, Wopnersoft, Disclaimer
+org.wopnersoft.unitconverter, 5,  Unit, Search, function, Play, Store
+com.sirma.mobile.bible.android, 1,  Today, Bible, Bookmarks, Follow, Facebook
+com.sirma.mobile.bible.android, 2,  LUKE, love, Share, Verse, Read
+com.sirma.mobile.bible.android, 3,  RECENTLY, James, download, reading, GNBDK
+com.sirma.mobile.bible.android, 4,  Reading, Bible, Sign, syncs, Plans
+com.sirma.mobile.bible.android, 5,  Books, KJV, VERSE, Filter, Traditional
+com.fitnow.loseit, 1,  welcome, Lose, track, Start, Already
+com.fitnow.loseit, 2,  Starting, Please, Pounds
+com.fitnow.loseit, 3,  my, next, choose, maintain,lose
+com.fitnow.loseit, 4,  monday, motivate, budget, exercise, add
+com.fitnow.loseit, 5,  manage, apps, preferences, general, premium
