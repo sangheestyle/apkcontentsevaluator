@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-require 'CSV'
+require 'csv'
 require_relative 'apk_ui_contents_set'
 require_relative 'apk_labels_set'
 
@@ -55,6 +55,17 @@ class ApkContentsEvaluator
     end
     rate = Float(word_count) / Float(found_count) * 100
     return [apk_name, word_count, found_count, rate]
+  end
+
+  def to_csv(type="case", path)
+    CSV.open(path, "wb") do |csv|
+      case type
+      when "case"
+        @eval_per_case.each {|row| csv << row}
+      when "apk"
+        @eval_per_apk.each {|row| csv << row}
+      end
+    end
   end
 
   private :calc_eval_per_case, :calc_eval_per_apk, :calc_eval_group_by
