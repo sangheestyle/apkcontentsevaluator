@@ -1,10 +1,8 @@
 #!/usr/bin/ruby
-require_relative "apk_ui_contents_set"
+require_relative 'apk_contents_evaluator'
 
-path = ARGV[0]
-new_set = ApkUIContentsSet.new(path)
-new_set.apk_ui_contents_set.each do |apk|
-  puts "apk name: " + apk.apk_name
-  puts "version: " + apk.version
-  puts "contents length: " + apk.contents.length.to_s
-end
+path_labels, path_uis = ARGV[0], ARGV[1]
+ace = ApkContentsEvaluator.new(path_labels, path_uis)
+ace.calc_eval()
+p ace.eval_per_case
+p ace.eval_per_apk
