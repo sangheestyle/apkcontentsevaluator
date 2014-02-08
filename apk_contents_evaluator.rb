@@ -34,10 +34,6 @@ class ApkContentsEvaluator
     @eval_per_apk << self.calc_eval_per_apk()
   end
 
-  def evaluations_for_each_case
-    @evaluations
-  end
-
   def calc_eval_group_by(apk_name)
     rows = @eval_per_case.find_all{|row| row[0] == apk_name}
     word_count = 0
