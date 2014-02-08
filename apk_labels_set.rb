@@ -42,10 +42,3 @@ class ApkLabelsSet
     raise NotImplementedError
   end
 end
-
-=begin : for simple testing
-al_set = ApkLabelsSet.new(ARGV[0])
-al_set.apk_labels_set.each do |labels|
-  puts labels.apk_name, labels.id, labels.labels
-end
-=end
