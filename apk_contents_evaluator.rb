@@ -19,7 +19,11 @@ class ApkContentsEvaluator
     @apk_labels_set.each do |label|
       @eval_per_case << calc_eval_per_case(label, @apk_ui_contents_set)
     end
-    @eval_per_apk << calc_eval_per_apk()
+    apk_names = @eval_per_case.map{|row| row[0]}
+    unique_apk_names = apk_names.uniq
+    unique_apk_names.each do |apk_name|
+      @eval_per_apk << calc_eval_per_apk(apk_name)
+    end
   end
 
   def calc_eval_per_case(label, ui_contents_set)
@@ -35,17 +39,7 @@ class ApkContentsEvaluator
     return [label.apk_name, label.id, words.count, found_count, rate]
   end
 
-  def calc_eval_per_apk()
-    apk_names = @eval_per_case.map{|row| row[0]}
-    unique_apk_names = apk_names.uniq
-    result = Array.new
-    unique_apk_names.each do |apk_name|
-      result << calc_eval_group_by(apk_name)
-    end
-    return result
-  end
-
-  def calc_eval_group_by(apk_name)
+  def calc_eval_per_apk(apk_name)
     rows = @eval_per_case.find_all{|row| row[0] == apk_name}
     word_count = 0
     found_count = 0
@@ -68,6 +62,6 @@ class ApkContentsEvaluator
     end
   end
 
-  private :calc_eval_per_case, :calc_eval_per_apk, :calc_eval_group_by
+  private :calc_eval_per_case, :calc_eval_per_apk
 
 end
