@@ -1,0 +1,9 @@
+org.wopnersoft.unitconverter, 1, Unit Converter
+org.wopnersoft.unitconverter, 2, Click here to View and Unlock full list of
+org.wopnersoft.unitconverter, 3, Rate Me!
+org.wopnersoft.unitconverter, 4, Unit Converter is a simple, user friendly unit converter.
+org.wopnersoft.unitconverter, 5, Imperial Value Inputs (i.e. 6ft 2in)
+com.ted.android, 1, You do not currently have any downloaded talks
+com.ted.android, 2, You want to see something...
+com.ted.android, 3, How much time do you have?
+com.ted.android, 4, Only run background updates when connected to a Wi-Fi network
