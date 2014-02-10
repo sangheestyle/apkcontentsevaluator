@@ -1,23 +1,18 @@
 #!/usr/bin/ruby
 require 'csv'
-require_relative 'apk_ui_content_set'
-require_relative 'apk_label_set'
 
 class ApkContentEvaluator
   attr_reader :eval_per_case, :eval_per_apk
 
-  def initialize(path_labels, path_ui_contents)
-    als = ApkLabelSet.new(path_labels)
-    aucs = ApkUIContentSet.new(path_ui_contents)
-    @apk_label_set = als.apk_label_set
-    @apk_ui_content_set = aucs.apk_ui_content_set
+  def initialize()
     @eval_per_case = Array.new
     @eval_per_apk = Array.new
   end
 
-  def calc_eval()
-    @apk_label_set.each do |label|
-      @eval_per_case << calc_eval_per_case(label, @apk_ui_content_set)
+  def calc_eval(apk_content_set, apk_ui_content_set)
+    apk_content_set.content_set.each do |apk_content|
+      @eval_per_case << calc_eval_per_case(apk_content,
+                                           apk_ui_content_set.apk_ui_content_set)
     end
     apk_names = @eval_per_case.map{|row| row[0]}
     unique_apk_names = apk_names.uniq
@@ -26,17 +21,20 @@ class ApkContentEvaluator
     end
   end
 
-  def calc_eval_per_case(label, ui_content_set)
-    ui_contents = ui_content_set.detect{|uc| uc.apk_name == label.apk_name}
-    words = label.labels
+  def calc_eval_per_case(apk_content, ui_content_set)
+    content = apk_content.content
+    ui_content = ui_content_set.detect{|uc| uc.apk_name == apk_content.name}
+    if ui_content.class == NilClass
+      raise "#{apk_content.name} is not in UI content set."
+    end
     found_count = 0
-    words.each do |word|
-      if ui_contents.content.scan(word)
+    content.each do |item|
+      if ui_content.content.scan(item)
         found_count += 1
       end
     end
-    rate = Float(words.count) / Float(found_count) * 100
-    return [label.apk_name, label.id, words.count, found_count, rate]
+    rate = Float(content.count) / Float(found_count) * 100
+    evaluation = [apk_content.name, apk_content.id, content.count, found_count, rate]
   end
 
   def calc_eval_per_apk(apk_name)
@@ -48,7 +46,7 @@ class ApkContentEvaluator
       found_count += row[3]
     end
     rate = Float(word_count) / Float(found_count) * 100
-    return [apk_name, word_count, found_count, rate]
+    evaluation = [apk_name, word_count, found_count, rate]
   end
 
   def to_csv(type="case", path)
