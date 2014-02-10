@@ -3,3 +3,12 @@ com.fitnow.loseit, 2,  Starting, Please, Pounds
 com.fitnow.loseit, 3,  my, next, choose, maintain,lose
 com.fitnow.loseit, 4,  monday, motivate, budget, exercise, add
 com.fitnow.loseit, 5,  manage, apps, preferences, general, premium
+com.usa.health.ifitness.firstaid, 1, First, aid, Welcome, These, SKIP 
+com.usa.health.ifitness.firstaid, 2, Tips, Heart, bleeding, Other, emergency
+com.usa.health.ifitness.firstaid, 3, Rate, market, Dear, improvement., Ok
+com.usa.health.ifitness.firstaid, 4, Title:, butter., According, burn., Prev
+com.usa.health.ifitness.firstaid, 5, Accident, adult, activity, Choking, child
+com.ted.android, 1, Featured, Downloads, You, talks, Presented
+com.ted.android, 2, Inspire, You, something…, Beautiful, Jaw-dropping
+com.ted.android, 3, TED, have?, Choose, MIN, Continue
+com.ted.android, 4, Language, App, english, Tips, Download

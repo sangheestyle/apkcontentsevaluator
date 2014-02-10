@@ -8,3 +8,17 @@ com.fitnow.loseit, 2, Please enter your starting weight
 com.fitnow.loseit, 3, Maintain current weight
 com.fitnow.loseit, 4, I have not logged any food or exercise this week
 com.fitnow.loseit, 5, About Lose It!
+com.sirma.mobile.bible.android, 1, Follow us on Facebook
+com.sirma.mobile.bible.android, 2, But love ye your enemies, and do good
+com.sirma.mobile.bible.android, 3, RECENTLT USED VERSIONS
+com.sirma.mobile.bible.android, 4, TIP: Keep your plan on track.
+com.sirma.mobile.bible.android, 5, Filter Book
+com.ted.android, 1, You do not currently have any downloaded talks
+com.ted.android, 2, You want to see something
+com.ted.android, 3, Choose the length of your playlist
+com.ted.android, 4, Only run backbround updates when connected to a Wi-Fi network
+com.usa.health.ifitness.firstaid, 1, Wed like to recommend you hot and free apps with notifications.
+com.usa.health.ifitness.firstaid, 2, Heart attacks and shock
+com.usa.health.ifitness.firstaid, 3, Dear users, If you like our app, please give us 5 stars.
+com.usa.health.ifitness.firstaid, 4, The best thing to put on a burn is butter.
+com.usa.health.ifitness.firstaid, 5, Broken bones child activity
