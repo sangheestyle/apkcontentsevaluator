@@ -29,11 +29,13 @@ class ApkContentEvaluator
     end
     found_count = 0
     content.each do |item|
-      if ui_content.content.scan(item)
+      if ui_content.content.scan(item).count != 0
         found_count += 1
+      else
+        puts "NOT found: #{apk_content.name}: #{item}"
       end
     end
-    rate = Float(content.count) / Float(found_count) * 100
+    rate = Float(found_count) / Float(content.count) * 100
     evaluation = [apk_content.name, apk_content.id, content.count, found_count, rate]
   end
 
@@ -45,7 +47,7 @@ class ApkContentEvaluator
       word_count += row[2]
       found_count += row[3]
     end
-    rate = Float(word_count) / Float(found_count) * 100
+    rate =  Float(found_count) / Float(word_count) * 100
     evaluation = [apk_name, word_count, found_count, rate]
   end
 
