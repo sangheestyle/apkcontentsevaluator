@@ -12,7 +12,7 @@ class ApkContentEvaluator
   def calc_eval(apk_content_set, apk_ui_content_set)
     apk_content_set.content_set.each do |apk_content|
       @eval_per_case << calc_eval_per_case(apk_content,
-                                           apk_ui_content_set.apk_ui_content_set)
+                                           apk_ui_content_set.content_set)
     end
     apk_names = @eval_per_case.map{|row| row[0]}
     unique_apk_names = apk_names.uniq
@@ -23,7 +23,7 @@ class ApkContentEvaluator
 
   def calc_eval_per_case(apk_content, ui_content_set)
     content = apk_content.content
-    ui_content = ui_content_set.detect{|uc| uc.apk_name == apk_content.name}
+    ui_content = ui_content_set.detect{|uc| uc.name == apk_content.name}
     if ui_content.class == NilClass
       raise "#{apk_content.name} is not in UI content set."
     end

@@ -1,40 +1,16 @@
 #!/usr/bin/ruby
 require 'pathname'
+require_relative 'apk_content_set'
 
-class ApkUIContent
-  attr_reader :apk_name, :version, :content
+class ApkUIContentSet < ApkContentSet
 
-  def initialize(apk_name, version, contents)
-    @apk_name = apk_name
-    @version = version
-    @content = contents
-  end
-end
-
-class ApkUIContentSet
-  attr_reader :apk_ui_content_set
-
-  def initialize(path)
-    @apk_ui_content_set = self.read(path)
-  end
-
-  def read(path)
-    apk_ui_content = Array.new
-    if File.directory?(path)
-      apk_ui_content << self.read_directory(path)
-    else
-      apk_ui_content << self.read_file(path)
-    end
-    apk_ui_content.flatten
-  end
-
-  def read_file(file_path)
-    file_name = Pathname.new(file_path).basename.to_s
+  def read_file(path)
+    file_name = Pathname.new(path).basename.to_s
     apk_name = file_name[0..-7]
-    version = file_name[-5]
-    f = File.open(file_path, "rb")
-    contents = f.read
-    ApkUIContent.new(apk_name, version, contents)
+    @type = file_name[-5]
+    f = File.open(path, "rb")
+    content = f.read
+    ApkContent.new(@type, apk_name, @type, content)
   end
 
   def read_directory(path)

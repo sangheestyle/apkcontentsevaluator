@@ -12,7 +12,7 @@ end
 class ApkContentSet
   attr_reader :content_set
 
-  def initialize(path, type)
+  def initialize(path, type=NIL)
     @type = type
     @content_set = read(path)
   end
