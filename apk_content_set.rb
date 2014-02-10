@@ -44,4 +44,13 @@ class ApkContentSet
     end
     content_set
   end
+
+  def to_save(path)
+    CSV.open(path, "wb") do |csv|
+      @content_set.each do |apk_content|
+        csv << [apk_content.name, apk_content.id, apk_content.content].flatten
+      end
+    end
+  end
+
 end
