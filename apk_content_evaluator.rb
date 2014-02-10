@@ -1,23 +1,23 @@
 #!/usr/bin/ruby
 require 'csv'
-require_relative 'apk_ui_contents_set'
-require_relative 'apk_labels_set'
+require_relative 'apk_ui_content_set'
+require_relative 'apk_label_set'
 
-class ApkContentsEvaluator
+class ApkContentEvaluator
   attr_reader :eval_per_case, :eval_per_apk
 
   def initialize(path_labels, path_ui_contents)
-    als = ApkLabelsSet.new(path_labels)
-    aucs = ApkUIContentsSet.new(path_ui_contents)
-    @apk_labels_set = als.apk_labels_set
-    @apk_ui_contents_set = aucs.apk_ui_contents_set
+    als = ApkLabelSet.new(path_labels)
+    aucs = ApkUIContentSet.new(path_ui_contents)
+    @apk_label_set = als.apk_label_set
+    @apk_ui_content_set = aucs.apk_ui_content_set
     @eval_per_case = Array.new
     @eval_per_apk = Array.new
   end
 
   def calc_eval()
-    @apk_labels_set.each do |label|
-      @eval_per_case << calc_eval_per_case(label, @apk_ui_contents_set)
+    @apk_label_set.each do |label|
+      @eval_per_case << calc_eval_per_case(label, @apk_ui_content_set)
     end
     apk_names = @eval_per_case.map{|row| row[0]}
     unique_apk_names = apk_names.uniq
@@ -26,12 +26,12 @@ class ApkContentsEvaluator
     end
   end
 
-  def calc_eval_per_case(label, ui_contents_set)
-    ui_contents = ui_contents_set.detect{|uc| uc.apk_name == label.apk_name}
+  def calc_eval_per_case(label, ui_content_set)
+    ui_contents = ui_content_set.detect{|uc| uc.apk_name == label.apk_name}
     words = label.labels
     found_count = 0
     words.each do |word|
-      if ui_contents.contents.scan(word)
+      if ui_contents.content.scan(word)
         found_count += 1
       end
     end
