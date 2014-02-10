@@ -38,6 +38,10 @@ class ApkContentSet
   end
 
   def read_directory(path)
-    raise NotImplementedError
+    content_set = Array.new
+    Dir[path + "/**/#{@type}*.*"].each do |file_path|
+      content_set << read_file(file_path)
+    end
+    content_set
   end
 end
