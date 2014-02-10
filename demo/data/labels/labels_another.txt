@@ -1,0 +1,5 @@
+com.fitnow.loseit, 1,  welcome, Lose, track, Start, Already
+com.fitnow.loseit, 2,  Starting, Please, Pounds
+com.fitnow.loseit, 3,  my, next, choose, maintain,lose
+com.fitnow.loseit, 4,  monday, motivate, budget, exercise, add
+com.fitnow.loseit, 5,  manage, apps, preferences, general, premium
